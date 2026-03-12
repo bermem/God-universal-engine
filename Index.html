@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOD UNIVERSAL ENGINE – AI Music Factory</title>
+<style>
+body{font-family:Arial;background:#020617;color:#fff;padding:28px}
+h1,h2{text-align:center}
+.container{max-width:3600px;margin:auto}
+.card{background:#0b1028;padding:22px;border-radius:14px;margin-bottom:26px}
+button{padding:12px 18px;border:none;border-radius:8px;margin-top:10px;margin-right:10px;cursor:pointer}
+.gen{background:#22c55e;color:white}
+.copy{background:#3b82f6;color:white}
+.cosmic{background:#f59e0b;color:black}
+.mass{background:#a855f7;color:white}
+.predict{background:#f43f5e;color:white}
+.export{background:#ef4444;color:white}
+.ai{background:#06b6d4;color:black}
+.out{margin-top:15px;background:black;padding:16px;border-radius:10px;white-space:pre-wrap}
+.big{font-size:36px;text-align:center;background:black;padding:18px;border-radius:10px;margin-top:15px}
+input,select{width:100%;padding:10px;border-radius:6px;border:none;margin-top:8px}
+</style>
+</head>
+<body><div class="container"><h1>🌌 GOD UNIVERSAL ENGINE</h1>
+<p style="text-align:center">Ultimate AI Music Factory • Hook Engine • Melody AI • Suno Prompt Lab • Album Builder • Revenue Simulator</p><div class="card">
+<h2>Universal Hook Engine</h2>
+<button class="cosmic" onclick="genHook()">Generate Hook</button>
+<button class="copy" onclick="copyHook()">Copy</button>
+<div id="hook" class="big">Generate Hook</div>
+</div><div class="card">
+<h2>TikTok Viral Hook Lab</h2>
+<button class="gen" onclick="viralHook()">Generate Viral Hook</button>
+<div id="viral" class="out"></div>
+</div><div class="card">
+<h2>Chord Progression AI</h2>
+<button class="gen" onclick="genChord()">Generate Chord</button>
+<div id="chord" class="out"></div>
+</div><div class="card">
+<h2>Beat Generator</h2>
+<button class="gen" onclick="genBeat()">Generate Beat</button>
+<div id="beat" class="out"></div>
+</div><div class="card">
+<h2>Melody Pattern AI</h2>
+<button class="gen" onclick="genMelody()">Generate Melody</button>
+<div id="melody" class="out"></div>
+</div><div class="card">
+<h2>Suno Prompt Generator</h2>
+<input id="genre" placeholder="Genre (Thai Pop, Synth Pop, EDM)" />
+<input id="mood" placeholder="Mood (Romantic, Sad, Dreamy)" />
+<input id="bpm" placeholder="BPM" />
+<input id="hookInput" placeholder="Hook" />
+<button class="gen" onclick="genPrompt()">Generate Prompt</button>
+<div id="prompt" class="out"></div>
+</div><div class="card">
+<h2>Lyrics Generator</h2>
+<input id="theme" placeholder="Theme" />
+<button class="gen" onclick="genLyrics()">Generate Lyrics</button>
+<div id="lyrics" class="out"></div>
+</div><div class="card">
+<h2>Arrangement AI</h2>
+<button class="cosmic" onclick="genArrangement()">Generate Arrangement</button>
+<div id="arrange" class="out"></div>
+</div><div class="card">
+<h2>Full Song Generator</h2>
+<button class="cosmic" onclick="genSong()">Generate Song</button>
+<div id="song" class="out"></div>
+</div><div class="card">
+<h2>Hit Probability AI</h2>
+<button class="predict" onclick="predict()">Analyze</button>
+<div id="score" class="out"></div>
+</div><div class="card">
+<h2>Streaming Revenue Simulator</h2>
+<input id="streams" placeholder="Streams" />
+<button class="ai" onclick="revenue()">Calculate</button>
+<div id="money" class="out"></div>
+</div><div class="card">
+<h2>Mass Song Factory</h2>
+<button class="mass" onclick="massSongs()">Generate 100000 Songs</button>
+<button class="export" onclick="exportCSV()">Export CSV</button>
+<div id="mass" class="out"></div>
+</div><div class="card">
+<h2>Album Generator</h2>
+<button class="cosmic" onclick="album50()">Generate 50 Tracks</button>
+<button class="cosmic" onclick="album500()">Generate 500 Tracks</button>
+<div id="album" class="out"></div>
+</div><div class="card">
+<h2>AI Artist Generator</h2>
+<button class="ai" onclick="artist()">Generate Artist</button>
+<div id="artist" class="out"></div>
+</div><div class="card">
+<h2>AI Label Strategy</h2>
+<button class="cosmic" onclick="strategy()">Generate Strategy</button>
+<div id="strategy" class="out"></div>
+</div></div><script>
+
+const a=["หัวใจ","คืนนี้","ความรัก","ดวงดาว","คืนเหงา","เสียงใจ","ความฝัน","เรา","เธอ","ฉัน"]
+const b=["ยังรัก","ยังรอ","คิดถึง","ไม่ลืม","เรียกหา","ไม่เปลี่ยน","ฝันถึง"]
+const c=["ตลอดไป","ทุกคืน","ทุกวัน","ในหัวใจ","เสมอ","ตลอดกาล"]
+
+let hooks=[]
+for(let i of a){for(let j of b){for(let k of c){hooks.push(`${i} ${j} ${k}`)}}}
+
+const chords=["C G Am F","G D Em C","Am F C G","Dm G C Am","Em C G D","F C G Am"]
+const beats=["Kick Snare Kick Snare","Kick Kick Snare","Kick Snare Hat","Kick Hat Snare"]
+
+function r(x){return x[Math.floor(Math.random()*x.length)]}
+
+function genHook(){document.getElementById("hook").innerText=r(hooks)}
+
+function copyHook(){navigator.clipboard.writeText(document.getElementById("hook").innerText)}
+
+function viralHook(){
+let h=r(hooks)
+document.getElementById("viral").innerText=`${h}\n${h}\n${h}\n${h}`
+}
+
+function genChord(){document.getElementById("chord").innerText=r(chords)}
+
+function genBeat(){document.getElementById("beat").innerText=r(beats)}
+
+function genMelody(){document.getElementById("melody").innerText="Melody Pattern "+Math.floor(Math.random()*99999)}
+
+function genPrompt(){
+let g=document.getElementById("genre").value
+let m=document.getElementById("mood").value
+let bpm=document.getElementById("bpm").value
+let hook=document.getElementById("hookInput").value
+
+let text=`Create streaming hit song
+Genre:${g}
+Mood:${m}
+Tempo:${bpm} BPM
+Hook:${hook}
+Chord:${r(chords)}
+Beat:${r(beats)}
+Structure:Intro Verse PreChorus Chorus Verse Chorus Bridge Final Chorus`
+
+document.getElementById("prompt").innerText=text
+}
+
+function genLyrics(){
+let theme=document.getElementById("theme").value
+let hook=r(hooks)
+let text=`Theme:${theme}
+
+Verse
+คืนหนึ่งที่เงียบงัน
+หัวใจยังเรียกหา
+
+PreChorus
+เวลายังคงหมุน
+
+Chorus
+${hook}
+${hook}`
+
+document.getElementById("lyrics").innerText=text
+}
+
+function genArrangement(){
+let a=`Intro 8 bars
+Verse 16 bars
+Pre-Chorus 8 bars
+Chorus 16 bars
+Verse 16 bars
+Bridge 8 bars
+Final Chorus 16 bars`
+
+document.getElementById("arrange").innerText=a
+}
+
+function genSong(){
+let hook=r(hooks)
+let s=`Intro
+Verse
+คืนที่ไม่มีเธอ
+PreChorus
+ใจยังรอ
+Chorus
+${hook}
+${hook}
+Bridge
+ถ้ากลับมาได้
+Final Chorus
+${hook}`
+
+document.getElementById("song").innerText=s
+}
+
+function predict(){
+let score=90+Math.floor(Math.random()*10)
+let t=score>96?"🔥 Global Hit":"⭐ Strong Hit"
+
+document.getElementById("score").innerText=`Score ${score}/100 ${t}`
+}
+
+function revenue(){
+let streams=document.getElementById("streams").value
+let rate=0.003
+let money=streams*rate
+
+document.getElementById("money").innerText=`Estimated Revenue: $${money}`
+}
+
+let dataset=[]
+
+function massSongs(){
+let out=""
+dataset=[]
+for(let i=1;i<=100000;i++){
+let h=r(hooks)
+let c=r(chords)
+
+dataset.push({i,h,c})
+out+=`Song ${i} | ${h} | ${c}\n`
+}
+
+document.getElementById("mass").innerText=out
+}
+
+function exportCSV(){
+let csv="Song,Hook,Chord\n"
+dataset.forEach(d=>{csv+=`${d.i},${d.h},${d.c}\n`})
+let blob=new Blob([csv])
+let a=document.createElement('a')
+a.href=URL.createObjectURL(blob)
+a.download="god_universal_engine_dataset.csv"
+a.click()
+}
+
+function album50(){
+let t=""
+for(let i=1;i<=50;i++){t+=`Track ${i} - ${r(hooks)}\n`}
+document.getElementById("album").innerText=t
+}
+
+function album500(){
+let t=""
+for(let i=1;i<=500;i++){t+=`Track ${i} - ${r(hooks)}\n`}
+document.getElementById("album").innerText=t
+}
+
+function artist(){
+const f=["Neon","Nova","Echo","Aurora","Luna","Cosmic"]
+const l=["Dream","Pulse","Wave","Sky","Beat"]
+
+document.getElementById("artist").innerText=f[Math.floor(Math.random()*f.length)]+" "+l[Math.floor(Math.random()*l.length)]
+}
+
+function strategy(){
+let s=`AI MUSIC LABEL PLAN
+
+1. Produce 20 songs daily
+2. Focus on viral hooks
+3. Upload TikTok daily
+4. Release weekly singles
+5. Build catalog 5000 songs
+6. Monetize streaming`
+
+document.getElementById("strategy").innerText=s
+}
+
+</script></body>
+</html>
